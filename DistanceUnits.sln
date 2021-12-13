@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistanceUnits", "DistanceUnits\DistanceUnits.csproj", "{4A63E65F-F066-4F97-B2FD-8C2E8C17CAA2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDistanceUnits", "TestDistanceUnits\TestDistanceUnits.csproj", "{7C5F7E14-CD79-4711-9910-186900812B89}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistanceMain", "DistanceMain\DistanceMain.csproj", "{058AF892-540E-4979-AE7F-2B52E90CC399}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,13 @@ Global
 		{4A63E65F-F066-4F97-B2FD-8C2E8C17CAA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A63E65F-F066-4F97-B2FD-8C2E8C17CAA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A63E65F-F066-4F97-B2FD-8C2E8C17CAA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C5F7E14-CD79-4711-9910-186900812B89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C5F7E14-CD79-4711-9910-186900812B89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C5F7E14-CD79-4711-9910-186900812B89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C5F7E14-CD79-4711-9910-186900812B89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{058AF892-540E-4979-AE7F-2B52E90CC399}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{058AF892-540E-4979-AE7F-2B52E90CC399}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{058AF892-540E-4979-AE7F-2B52E90CC399}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{058AF892-540E-4979-AE7F-2B52E90CC399}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

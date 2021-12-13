@@ -1,9 +1,12 @@
-﻿using System;
+﻿// See https://aka.ms/new-console-template for more information
+
+using System;
+using DistanceUnits;
 using DistanceUnits.metrics;
 
-namespace DistanceUnits
+namespace DistanceMain
 {
-    class Program
+    public static class Program
     {
         public static void Main(string[] args)
         {
@@ -15,5 +18,4 @@ namespace DistanceUnits
             //todo: Add KM FEET, fix MILE
         }
     }
-
 }
