@@ -16,34 +16,32 @@ namespace DistanceUnits
 
         public decimal AsMeters()
         {
-            if (_metric.GetType() == typeof(Meter))
-            {
-                return _metric.Length;
-            }
-            
-            return ((IConvert)_metric).lengthToMeters();
+            return IsMetricTypeOf(typeof(Meter)) ?
+                _metric.Length : LengthToMeters();
+        }
+        
+        public decimal AsKilometers()
+        {
+            return IsMetricTypeOf(typeof(Kilometer)) ?
+                _metric.Length :LengthByRatio(Units.KilometersToMeters);
+        }
+        
+        public decimal AsFeet()
+        {
+            return IsMetricTypeOf(typeof(Feet)) ?
+                _metric.Length :LengthByRatio(Units.FeetToMeters);
         }
 
         public decimal AsMiles()
         {
-            if (_metric.GetType() == typeof(Mile))
-            {
-                return _metric.Length;
-            }
-
-            decimal meters = ((IConvert)_metric).lengthToMeters();
-            return meters / Units.MilesToMeters;
+            return IsMetricTypeOf(typeof(Mile)) ?
+                _metric.Length :LengthByRatio(Units.MilesToMeters);
         }
         
         public decimal AsCentimeters()
         {
-            if (_metric.GetType() == typeof(Centimeter))
-            {
-                return _metric.Length;
-            }
-
-            decimal meters = ((IConvert)_metric).lengthToMeters();
-            return meters / Units.CentimetersToMeters;
+            return IsMetricTypeOf(typeof(Centimeter)) ?
+                _metric.Length :LengthByRatio(Units.CentimetersToMeters);
         }
         
         public static Distance<T> FromMeters(decimal metrics)
@@ -96,6 +94,21 @@ namespace DistanceUnits
             throw new NotSupportedException(ExceptionMessages
                 .UnsupportedOperatorOverloadingMsg(a._metric.GetType())
             );
+        }
+        
+        private decimal LengthToMeters()
+        {
+            return ((IConvert)_metric).lengthToMeters();
+        }
+        
+        private decimal LengthByRatio(decimal ratio)
+        {
+            return LengthToMeters() / ratio;
+        }
+
+        private bool IsMetricTypeOf(Type type)
+        {
+            return _metric.GetType() == type;
         }
     }
 }
