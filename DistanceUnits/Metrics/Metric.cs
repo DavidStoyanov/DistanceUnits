@@ -1,4 +1,5 @@
 ﻿using System;
+using DistanceUnits.Constants;
 using DistanceUnits.Interfaces;
 
 namespace DistanceUnits.metrics
@@ -31,7 +32,9 @@ namespace DistanceUnits.metrics
         {
             if (a.GetType() != b.GetType())
             {
-                throw new Exception($"Type difference: {a.GetType()} to {b.GetType()}");
+                throw new Exception(ExceptionMessages
+                    .OperatorOverloadingWithDifferentTypesMsg(a.GetType(), b.GetType())
+                );
             }
         }
     }

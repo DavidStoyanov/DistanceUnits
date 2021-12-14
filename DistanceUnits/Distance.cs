@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using DistanceUnits.Constants;
 using DistanceUnits.Interfaces;
 using DistanceUnits.metrics;
 using Microsoft.VisualBasic.CompilerServices;
@@ -62,10 +63,13 @@ namespace DistanceUnits
 
         public static Distance<T> operator +(Distance<T> a, Distance<T> b)
         {
-            if (a._metric.GetType() != b._metric.GetType())
+            var aType = a._metric.GetType();
+            var bType = b._metric.GetType();
+            
+            if (aType != bType)
             {
-                throw new Exception("Operator overloading with different types for: " +
-                        $"{a._metric.GetType()}, {b._metric.GetType()}"
+                throw new Exception(ExceptionMessages
+                    .OperatorOverloadingWithDifferentTypesMsg(aType, bType)
                 );
             }
 
@@ -94,7 +98,9 @@ namespace DistanceUnits
                 return new Distance<T>((T)(IMetrics)new Centimeter(sumLength));
             }
             
-            throw new NotSupportedException($"Unsupported operator overloading for type {a.GetType()}");
+            throw new NotSupportedException(ExceptionMessages
+                .UnsupportedOperatorOverloadingMsg(a._metric.GetType())
+            );
         }
     }
 }
