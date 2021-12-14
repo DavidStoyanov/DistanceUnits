@@ -1,17 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using DistanceUnits.Constants;
 using DistanceUnits.Interfaces;
 using DistanceUnits.metrics;
-using Microsoft.VisualBasic.CompilerServices;
 
 namespace DistanceUnits
 {
     public class Distance<T> where T : IMetrics
     {
-        private static decimal CentimetersToMeters = 0.01m;
-        private static decimal MilesToMeters = 1609.344m;
-        
         private readonly T _metric;
 
         public Distance(T metric)
@@ -37,7 +32,7 @@ namespace DistanceUnits
             }
 
             decimal meters = ((IConvert)_metric).lengthToMeters();
-            return meters / MilesToMeters;
+            return meters / Units.MilesToMeters;
         }
         
         public decimal AsCentimeters()
@@ -48,7 +43,7 @@ namespace DistanceUnits
             }
 
             decimal meters = ((IConvert)_metric).lengthToMeters();
-            return meters / CentimetersToMeters;
+            return meters / Units.CentimetersToMeters;
         }
         
         public static Distance<T> FromMeters(decimal metrics)

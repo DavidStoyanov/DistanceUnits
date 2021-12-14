@@ -1,16 +1,16 @@
-﻿namespace DistanceUnits.metrics
+﻿using DistanceUnits.Constants;
+
+namespace DistanceUnits.metrics
 {
     public class Centimeter : Metric
     {
-        private const decimal CentimetersToMeters = 0.01m;
-
         public Centimeter(decimal length) : base(length)
         {
         }
 
         public override decimal lengthToMeters()
         {
-            return Length * CentimetersToMeters;
+            return Length * Units.CentimetersToMeters;
         }
     }
 }
