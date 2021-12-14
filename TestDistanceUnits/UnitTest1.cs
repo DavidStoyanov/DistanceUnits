@@ -5,6 +5,9 @@ public class Tests
     [SetUp]
     public void Setup()
     {
+        //var a = new Distance<IMetrics>(new Mile(150));
+        //Console.WriteLine(b.AsMeters());
+        //Console.WriteLine(b.AsMiles());
     }
 
     [Test]

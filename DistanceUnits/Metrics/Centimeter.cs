@@ -2,8 +2,8 @@
 {
     public class Centimeter : Metric
     {
-        private static decimal CentimetersToMeters = 0.01m;
-        
+        private const decimal CentimetersToMeters = 0.01m;
+
         public Centimeter(decimal length) : base(length)
         {
         }

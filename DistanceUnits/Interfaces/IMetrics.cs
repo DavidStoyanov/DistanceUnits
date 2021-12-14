@@ -1,4 +1,4 @@
-﻿namespace DistanceUnits.metrics
+﻿namespace DistanceUnits.Interfaces
 {
     public interface IMetrics
     {

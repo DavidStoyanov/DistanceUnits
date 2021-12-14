@@ -1,6 +1,4 @@
-﻿using System.Transactions;
-
-namespace DistanceUnits.metrics
+﻿namespace DistanceUnits.metrics
 {
     public class Mile : Metric
     {

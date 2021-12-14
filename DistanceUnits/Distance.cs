@@ -1,4 +1,8 @@
-﻿using DistanceUnits.metrics;
+﻿using System;
+using System.Collections.Generic;
+using DistanceUnits.Interfaces;
+using DistanceUnits.metrics;
+using Microsoft.VisualBasic.CompilerServices;
 
 namespace DistanceUnits
 {
@@ -56,14 +60,41 @@ namespace DistanceUnits
             return new Distance<T>((T)(IMetrics) new Mile(miles));
         }
 
-        /*public static Distance operator +(Distance a, Distance b)
+        public static Distance<T> operator +(Distance<T> a, Distance<T> b)
         {
-            return new Distance(a._metric + b._metric);
+            if (a._metric.GetType() != b._metric.GetType())
+            {
+                throw new Exception("Operator overloading with different types for: " +
+                        $"{a._metric.GetType()}, {b._metric.GetType()}"
+                );
+            }
+
+            var aLength = a._metric.Length;
+            var bLength = a._metric.Length;
+            var sumLength = aLength + bLength;
+            
+            if (a._metric.GetType() == typeof(Meter))
+            {
+                return new Distance<T>((T)(IMetrics)new Meter(sumLength));
+            }
+            else if (a._metric.GetType() == typeof(Kilometer))
+            {
+                return new Distance<T>((T)(IMetrics)new Kilometer(sumLength));
+            }
+            else if (a._metric.GetType() == typeof(Feet))
+            {
+                return new Distance<T>((T)(IMetrics)new Feet(sumLength));
+            }
+            else if (a._metric.GetType() == typeof(Mile))
+            {
+                return new Distance<T>((T)(IMetrics)new Mile(sumLength));
+            }
+            else if (a._metric.GetType() == typeof(Centimeter))
+            {
+                return new Distance<T>((T)(IMetrics)new Centimeter(sumLength));
+            }
+            
+            throw new NotSupportedException($"Unsupported operator overloading for type {a.GetType()}");
         }
-        
-        public static Distance operator -(Distance a, Distance b)
-        {
-            return new Distance(a._metric - b._metric);
-        }*/
     }
 }
