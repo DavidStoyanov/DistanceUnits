@@ -8,7 +8,7 @@ namespace TestDistanceUnits
 {
     
     
-    public class UnitTests1
+    public class MetersToUnit
     {
         private Distance<IMetrics> _meters;
 
@@ -17,15 +17,70 @@ namespace TestDistanceUnits
         {
             _meters = Distance<IMetrics>.FromMeters(1000);
         }
+        
+        [Test]
+        public void TestMetersToMeters()
+        {
+            Assert.AreEqual(1000, _meters.AsMeters());
+        }
+        
+        [Test]
+        public void TestMetersToKilometers()
+        {
+            Assert.AreEqual(1, _meters.AsKilometers());
+        }
+        
+        [Test]
+        public void TestMetersToFeets()
+        {
+            var actual = Math.Round(_meters.AsFeet(), 4);
+            Assert.AreEqual(3280.8399m, actual);
+        }
 
         [Test]
         public void TestMetersToMiles()
         {
-            var expected = Math.Round(0.621371192m, 7);
-            var actual = Math.Round(_meters.AsMiles(), 7);
-            Assert.AreEqual(expected, actual);
+            var actual = Math.Round(_meters.AsMiles(), 9);
+            Assert.AreEqual(0.621371192m, actual);
         }
         
+        [Test]
+        public void TestMetersToCentimeters()
+        {
+            Assert.AreEqual(100000, _meters.AsCentimeters());
+        }
+        
+    }
+
+    public class UnitToUnit
+    {
+        [SetUp]
+        public void Setup()
+        {
+            
+        }
+        
+        [Test]
+        public void TestMilesToFeets()
+        {
+            var mile = new Distance<IMetrics>(new Mile(0.7m));
+            Assert.AreEqual(3696 , mile.AsFeet());
+        }
+        
+        [Test]
+        public void TestCentimetersToFeets()
+        {
+            var cm = new Distance<IMetrics>(new Centimeter(88));
+            var actual = Math.Round(cm.AsFeet(), 8);
+            Assert.AreEqual(2.88713911 , actual);
+        }
+        
+        [Test]
+        public void TestKilometersToCentimeters()
+        {
+            var cm = new Distance<IMetrics>(new Kilometer(0.56887892m));
+            Assert.AreEqual(56887.892, cm.AsCentimeters());
+        }
     }
     
     public class OperatorOverloads
