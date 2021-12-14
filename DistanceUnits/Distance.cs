@@ -44,14 +44,29 @@ namespace DistanceUnits
                 _metric.Length :LengthByRatio(Units.CentimetersToMeters);
         }
         
-        public static Distance<T> FromMeters(decimal metrics)
+        public static Distance<T> FromMeters(decimal meters)
         {
-            return new Distance<T>( (T)(IMetrics) new Meter(metrics));
+            return new Distance<T>( (T)(IMetrics) new Meter(meters));
         }
+        
+        public static Distance<T> FromKilometers(decimal kilometers)
+        {
+            return new Distance<T>( (T)(IMetrics) new Kilometer(kilometers));
+        }
+        
+        public static Distance<T> FromFeets(decimal feets)
+        {
+            return new Distance<T>((T)(IMetrics) new Feet(feets));
+        } 
         
         public static Distance<T> FromMiles(decimal miles)
         {
             return new Distance<T>((T)(IMetrics) new Mile(miles));
+        }
+        
+        public static Distance<T> FromCentimeters(decimal centimeters)
+        {
+            return new Distance<T>((T)(IMetrics) new Centimeter(centimeters));
         }
 
         public static Distance<T> operator +(Distance<T> a, Distance<T> b)

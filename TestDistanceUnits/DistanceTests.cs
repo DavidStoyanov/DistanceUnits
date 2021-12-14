@@ -111,4 +111,55 @@ namespace TestDistanceUnits
             
         }
     }
+
+    public class StaticInitializers
+    {
+        [SetUp]
+        public void Setup()
+        {
+            
+        }
+
+        [Test]
+        public void TestFromMeter()
+        {
+            var a = Distance<IMetrics>.FromMeters(55);
+            var b = new Distance<IMetrics>(new Meter(55));
+            Assert.AreEqual(a.AsMeters(), b.AsMeters());
+        }
+        
+        [Test]
+        public void TestFromKilometers()
+        {
+            var a = Distance<IMetrics>.FromKilometers(55);
+            var b = new Distance<IMetrics>(new Kilometer(55));
+            Assert.AreEqual(a.AsKilometers(), b.AsKilometers());
+        }
+        
+        [Test]
+        public void TestFromFeets()
+        {
+            var a = Distance<IMetrics>.FromFeets(55);
+            var b = new Distance<IMetrics>(new Feet(55));
+            Assert.AreEqual(a.AsFeet(), b.AsFeet());
+        }
+        
+        [Test]
+        public void TestFromMiles()
+        {
+            var a = Distance<IMetrics>.FromMiles(55);
+            var b = new Distance<IMetrics>(new Mile(55));
+            Assert.AreEqual(a.AsMiles(), b.AsMiles());
+        }
+        
+        [Test]
+        public void TestFromCentimeters()
+        {
+            var a = Distance<IMetrics>.FromCentimeters(55);
+            var b = new Distance<IMetrics>(new Centimeter(55));
+            Assert.AreEqual(a.AsCentimeters(), b.AsCentimeters());
+        }
+        
+        
+    }
 }
