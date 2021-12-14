@@ -18,6 +18,9 @@ namespace DistanceMain
             Distance<IMetrics> b = Distance<IMetrics>.FromMeters(70);
             Console.WriteLine((a + b).AsMeters());
             
+            Distance<IMetrics> mile = Distance<IMetrics>.FromMiles(1);
+            Console.WriteLine(mile.AsMeters());
+            
             
             
             

@@ -19,7 +19,7 @@ namespace DistanceUnits.metrics
         public static Metric operator +(Metric a, Metric b)
         {
             ValidateMetricType(a, b);
-            return a + b;
+            return new Meter(a.Length + b.Length);
         }
         
         public static Metric operator -(Metric a, Metric b)

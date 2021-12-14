@@ -10,7 +10,7 @@ namespace DistanceUnits
     public class Distance<T> where T : IMetrics
     {
         private static decimal CentimetersToMeters = 0.01m;
-        private static decimal MilesToMeters = 1.609344m;
+        private static decimal MilesToMeters = 1609.344m;
         
         private readonly T _metric;
 
@@ -74,7 +74,7 @@ namespace DistanceUnits
             }
 
             var aLength = a._metric.Length;
-            var bLength = a._metric.Length;
+            var bLength = b._metric.Length;
             var sumLength = aLength + bLength;
             
             if (a._metric.GetType() == typeof(Meter))
